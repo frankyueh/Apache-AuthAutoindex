@@ -1,0 +1,56 @@
+
+#
+# Basic authentication setup
+#
+
+AuthType Basic
+AuthName "Apache-auth-autoindex Demo"
+AuthUserFile "/path/to/.htpasswd"
+Require valid-user
+
+#
+# Apache autoindex
+#
+
+#   Enable autoindex
+
+Options +Indexes
+
+#   Options and setup
+
+IndexOptions FancyIndexing
+IndexOptions FoldersFirst
+IndexOptions Charset=UTF-8
+IndexOptions XHTML
+IndexOptions HTMLTable
+IndexOptions IgnoreCase
+IndexOptions IconsAreLinks
+IndexOptions VersionSort
+IndexOptions NameWidth=*
+IndexOptions ScanHTMLTitles
+IndexOptions SuppressHTMLPreamble
+IndexOptions SuppressColumnsorting
+IndexOptions SuppressDescription
+IndexOptions SuppressRules
+IndexOrderDefault Ascending Name
+
+#   Ignore .autoindex folder been indexed
+
+IndexIgnore .autoindex
+
+#   Customized autoindex setup
+
+IndexIgnore .autoindex
+HeaderName /.autoindex/header.html
+ReadmeName /.autoindex/footer.html
+
+#   Icons type setup (Bootstrap's Glyphicon set)
+
+DefaultIcon /.autoindex/icons/glyphicon-file.svg
+AddIcon /.autoindex/icons/blank.svg ^^BLANKICON^^
+AddIcon /.autoindex/icons/glyphicon-folder-open.svg ^^DIRECTORY^^
+AddIcon /.autoindex/icons/glyphicon-circle-arrow-up.svg ..
+AddIconByType (TXT,/.autoindex/icons/glyphicon-file.svg) text/*
+AddIconByType (IMG,/.autoindex/icons/glyphicon-picture.svg) image/*
+AddIconByType (SND,/.autoindex/icons/glyphicon-music.svg) audio/*
+AddIconByType (VID,/.autoindex/icons/glyphicon-film.svg) video/*

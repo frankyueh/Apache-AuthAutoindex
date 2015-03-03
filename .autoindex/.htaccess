@@ -1,0 +1,21 @@
+
+# Require no authentication
+#	(disable it, only if all your directory needs user auth)
+
+Require all granted
+
+# Disable autoindex
+
+Options -Indexes
+
+# Add html as php handler for customized autoindex setup
+
+AddHandler application/x-httpd-php .html
+
+# Setup specific user auth file forcing apache to logout client browser
+#	NOTE: http://www.ssi-developer.net/htaccess/htaccess_logout.shtml
+
+<Files "logout.php">
+	AuthUserFile "/path/to/.htpasswd.logout"
+	Require user logout
+</Files>
