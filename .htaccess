@@ -37,6 +37,7 @@ IndexOrderDefault Ascending Name
 #   Ignore .autoindex folder been indexed
 
 IndexIgnore .autoindex
+IndexIgnore favicon.ico
 
 #   Customized autoindex setup
 
