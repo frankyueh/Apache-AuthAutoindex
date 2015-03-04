@@ -42,3 +42,17 @@ define('LOGOUT_PASSWORD', 'logout');
 define('LOGOUT_PATH', AUTOINDEX_PATH . 'logout.php');
 ```
 
+#### How to use redirect.inc
+
+redirect.inc let you create a page or folder to redirect other URL.
+First, you may create an empty folder and also create a "index.php" file inside the folder.
+
+index.php may look like this:
+```
+<?php require_once 'path/to/.autoindex/redirect.inc';
+
+redirect('Target site title', 'http://target.redirect.site/');
+```
+
+* set absolute path to **redirect.inc** file
+* use redirect(*title*, *url*) to setup the redirect page
