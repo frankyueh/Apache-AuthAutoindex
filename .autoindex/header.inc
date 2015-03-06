@@ -1,16 +1,6 @@
 <?php
 
-//
-// Configurations
-//
-
-define('ROOT_NAME', 'Apache-auth-autoindex Demo');
-
-define('AUTOINDEX_PATH', '/.autoindex/');
-
-define('LOGOUT_USER_NAME', 'logout');
-define('LOGOUT_PASSWORD', 'logout');
-define('LOGOUT_PATH', AUTOINDEX_PATH . 'logout.php');
+require_once 'config.inc';
 
 //
 // Functions
@@ -45,21 +35,21 @@ function createTitle() {
 
 function createFilePath() {
 	$dir = getPath();
-	$result = $current = '';
-	$result = '<ol class="breadcrumb">' .
-			'<li><a href="/">' . ROOT_NAME . '</a></li>';
-	$folders = explode('/', $dir);
-	foreach($folders as $folder) {
-		if($folder != "" && $folder[0] != "?") {
-			$is_last = ($current.'/'.$folder == $dir);
-			$result .= '<li' .
-					($is_last ? ' class="active"' : '') . '>' .
-					($is_last ? rawurldecode($folder) : '<a href="' . $current.'/'.$folder .'">' .
-					rawurldecode($folder) . '</a>') .
-					'</li>';
-			$current .= '/' . $folder;
+	if ($dir != '') {
+		$result = $current = '';
+		$folders = explode('/', $dir);
+		foreach($folders as $folder) {
+			if($folder != "" && $folder[0] != "?") {
+				$is_last = ($current.'/'.$folder == $dir);
+				$result .= '<li' .
+						($is_last ? ' class="active"' : '') . '>' .
+						($is_last ? rawurldecode($folder) : '<a href="' . $current.'/'.$folder .'">' .
+						rawurldecode($folder) . '</a>') .
+						'</li>';
+				$current .= '/' . $folder;
+			}
 		}
+		return '<ol class="breadcrumb">' . $result . '</ol>';
 	}
-	$result .= '</ol>';
-	return $result;
+	return '';
 }
