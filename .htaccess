@@ -33,6 +33,7 @@ IndexOptions SuppressColumnsorting
 IndexOptions SuppressDescription
 IndexOptions SuppressRules
 IndexOrderDefault Ascending Name
+IndexStyleSheet "fake.css"
 
 #   Ignore .autoindex folder been indexed
 

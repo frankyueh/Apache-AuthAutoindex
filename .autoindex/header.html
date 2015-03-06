@@ -8,46 +8,59 @@
 		<link rel="SHORTCUT ICON" href="/favicon.ico" />
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 		<style type='text/css'>
+			/* 
+			 * bootstrap css overwrite
+			 */
 			.nav .breadcrumb {
 				margin: 0 7px;
 			}
 			@media (min-width: 768px) {
 				.nav .breadcrumb {
-				float: left;
-				margin: 7px 10px;
+					float: left;
+					margin: 7px 10px;
 				}
 			}
+			/*
+			 * style for apache autoindex table
+			 */
+			 .indexcolicon {
+				width: 1%;
+			 }
+			 .indexcollastmod, .indexcolsize {
+				text-align: right;
+			 }
 		</style>
 		<title><?= createTitle() ?></title>
 	</head>
 	<body>
 		<div class="container">
-			<nav class="navbar navbar-default navbar-static-top" role="navigation">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="<?= getRootUrl() ?>"><?= ROOT_NAME ?></a>
+			<div class="row">
+				<nav class="navbar navbar-default navbar-static-top" role="navigation">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="<?= getRootUrl() ?>"><?= ROOT_NAME ?></a>
+						</div>
+						<div class="nav navbar-nav navbar-left">
+							<?= createFilePath() ?>
+						</div>
+						<div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+								<?php if (getUserName() != '') { ?>
+									<li><a href="#">
+										<span class="glyphicon glyphicon-user"></span>
+										<?= getUserName() ?>
+									</a></li>
+									<li><a href="<?= getLogoutUrl() ?>">Logout</a></li>
+								<?php } ?>
+							</ul>
+						</div>
 					</div>
-					<div class="nav navbar-nav navbar-left">
-						<?= createFilePath() ?>
-					</div>
-					<div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
-						<ul class="nav navbar-nav navbar-right">
-							<?php if (getUserName() != '') { ?>
-								<li><a href="#">
-									<span class="glyphicon glyphicon-user"></span>
-									<?= getUserName() ?>
-								</a></li>
-								<li><a href="<?= getLogoutUrl() ?>">Logout</a></li>
-							<?php } ?>
-						</ul>
-					</div>
-				</div>
-			</nav>
-			<div class="table-responsive" id="auto-index-table">
-				<!-- apache autoindex table -->
+				</nav>
+				<div class="table-responsive" id="auto-index-table">
+					<!-- apache autoindex table -->
