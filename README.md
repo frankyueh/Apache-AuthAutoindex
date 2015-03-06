@@ -24,15 +24,11 @@ AuthUserFile "/path/to/.htpasswd"
 Require valid-user
 ```
 
-#### Edit root "header.inc" file
+#### Edit root "config.inc" file
 
 * Change **ROOT_NAME** by your favor
 * Modify **AUTOINDEX_PATH** to change path name of ".autoindex"
 ```
-//
-// Configurations
-//
-
 define('ROOT_NAME', 'Apache-auth-autoindex Demo');
 
 define('AUTOINDEX_PATH', '/.autoindex/');
