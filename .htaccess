@@ -29,7 +29,6 @@ IndexOptions VersionSort
 IndexOptions NameWidth=*
 IndexOptions ScanHTMLTitles
 IndexOptions SuppressHTMLPreamble
-IndexOptions SuppressColumnsorting
 IndexOptions SuppressDescription
 IndexOptions SuppressRules
 IndexOrderDefault Ascending Name
