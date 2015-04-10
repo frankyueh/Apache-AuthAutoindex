@@ -16,9 +16,15 @@ function getRootUrl() {
 
 // NOTE: way to to logout .htacess basic auth.
 //		http://www.ssi-developer.net/htaccess/htaccess_logout.shtml
-function getLogoutUrl() {
+function getLogoutUrl($redirect_back = true) {
 	return '//' . LOGOUT_USER_NAME . ':' . LOGOUT_PASSWORD . '@' .
-			$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . LOGOUT_PATH;
+			$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . LOGOUT_PATH .
+			($redirect_back ? '?redirect=' . rawurlencode($_SERVER['REQUEST_URI']) : '');
+}
+
+function getLoginUrl($redirect_back = true) {
+	return '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . LOGIN_PATH .
+			($redirect_back ? '?redirect=' . rawurlencode($_SERVER['REQUEST_URI']) : '');
 }
 
 function getUserName() {

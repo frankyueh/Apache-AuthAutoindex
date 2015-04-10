@@ -1,15 +1,28 @@
 # Apache-AuthAutoindex
 
-Using apache autoindex with basic authentication and bootstrap. It implement with PHP for supporting logout feature of basic authentication. 
+Using apache autoindex with basic authentication and bootstrap. It implement with PHP for supporting logout feature of basic authentication. (**Only work for Apache version 2.4+**)
 
 Visit: [demo site](http://apache-auth-autoindex.dem0.hopto.me/ "apache-auth-autoindex Demo")
 (user:admin/pw:admin or user:user/pw:user).
 
 # Getting Started
 
-Quick setup by just copy ".autoindex" folder and root ".htaccess" file into your root directory.
+###Quick startup
 
-#### Edit root ".htaccess" file
+Copy the following into your root directory
+
+ * **.autoindex** folder
+ * **.htaccess** file
+ * **.login.php** file
+
+Make sure enable the flollowing Apche modules
+
+* auth_basic_module
+* authz_user_module
+* authn_file_module
+* autoindex_module
+
+### Edit root ".htaccess" file
 
 * Change **AuthName** by your favor
 * Create ".htpasswd" file and setup **AuthUserFile**
@@ -24,11 +37,15 @@ AuthUserFile "/path/to/.htpasswd"
 Require valid-user
 ```
 
-#### Edit root "config.inc" file
+### Edit root "header.inc" file
 
 * Change **ROOT_NAME** by your favor
 * Modify **AUTOINDEX_PATH** to change path name of ".autoindex"
 ```
+//
+// Configurations
+//
+
 define('ROOT_NAME', 'Apache-auth-autoindex Demo');
 
 define('AUTOINDEX_PATH', '/.autoindex/');
@@ -36,9 +53,11 @@ define('AUTOINDEX_PATH', '/.autoindex/');
 define('LOGOUT_USER_NAME', 'logout');
 define('LOGOUT_PASSWORD', 'logout');
 define('LOGOUT_PATH', AUTOINDEX_PATH . 'logout.php');
+
+define('LOGIN_PATH', '/' . '.login.php');
 ```
 
-#### How to use redirect.inc
+### How to use redirect.inc
 
 redirect.inc let you create a page or folder to redirect other URL.
 First, you may create an empty folder and also create a "index.php" file inside the folder.

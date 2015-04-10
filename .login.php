@@ -1,5 +1,5 @@
 <?php
-require_once 'header.inc';
+require_once '.autoindex/header.inc';
 
 function getRedirectUrl() {
 	return filter_has_var(INPUT_GET, 'redirect') ? filter_input(INPUT_GET, 'redirect') : getRootUrl();

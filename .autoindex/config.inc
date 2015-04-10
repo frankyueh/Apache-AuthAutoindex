@@ -7,3 +7,5 @@ define('AUTOINDEX_PATH', '/.autoindex/');
 define('LOGOUT_USER_NAME', 'logout');
 define('LOGOUT_PASSWORD', 'logout');
 define('LOGOUT_PATH', AUTOINDEX_PATH . 'logout.php');
+
+define('LOGIN_PATH', '/' . '.login.php');

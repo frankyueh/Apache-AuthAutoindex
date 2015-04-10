@@ -57,6 +57,8 @@
 										<?= getUserName() ?>
 									</a></li>
 									<li><a href="<?= getLogoutUrl() ?>">Logout</a></li>
+								<?php } else { ?>
+									<li><a href="<?= getLoginUrl() ?>">Login</a></li>
 								<?php } ?>
 							</ul>
 						</div>

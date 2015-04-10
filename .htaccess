@@ -6,7 +6,11 @@
 AuthType Basic
 AuthName "Apache-auth-autoindex Demo"
 AuthUserFile "/path/to/.htpasswd"
-Require valid-user
+Require all granted
+
+<Files ".login.php">
+	Require valid-user
+</Files>
 
 #
 # Apache autoindex
@@ -37,6 +41,7 @@ IndexStyleSheet "fake.css"
 #   Ignore .autoindex folder been indexed
 
 IndexIgnore .autoindex
+IndexIgnore .login.php
 IndexIgnore favicon.ico
 
 #   Customized autoindex setup
